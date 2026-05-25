@@ -9,17 +9,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --text:         #1F2A24;
-      --text-muted:   #5A6358;
-      --text-light:   #8A8173;
-      --green:        #14532D;
-      --green-pale:   #E8F0DD;
-      --green-mid:    #4F7D3A;
-      --gold:         #C99700;
-      --card:         #FFFCF5;
-      --border:       rgba(20,83,45,0.12);
+      --text:       #1F2A24;
+      --text-muted: #5A6358;
+      --text-light: #8A8173;
+      --green:      #14532D;
+      --green-pale: #E8F0DD;
+      --green-mid:  #4F7D3A;
+      --gold:       #C99700;
+      --card:       #FFFCF5;
+      --border:     rgba(20,83,45,0.12);
       --border-hover: #A8D18D;
-      --shadow:       0 2px 4px rgba(20,83,45,0.04), 0 16px 40px rgba(11,61,46,0.08);
+      --shadow:     0 2px 4px rgba(20,83,45,0.04), 0 16px 40px rgba(11,61,46,0.08);
       --shadow-hover: 0 4px 8px rgba(20,83,45,0.06), 0 24px 56px rgba(11,61,46,0.13);
     }
 
@@ -37,7 +37,6 @@
         linear-gradient(180deg, #F8F3E7 0%, #EEF3E5 100%);
     }
 
-    /* Grain texture */
     body::after {
       content: '';
       position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -59,33 +58,42 @@
       display: inline-flex; align-items: center; gap: 10px;
       font-size: 9px; font-weight: 500;
       letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 32px;
+      color: var(--gold); margin-bottom: 36px;
     }
     .tagline-line { width: 20px; height: 1px; background: var(--gold); opacity: 0.5; flex-shrink: 0; }
 
-    .brand { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
-
-    .brand-logo-wrap {
-      width: 52px; height: 52px; border-radius: 20px;
-      background: #F0F7ED;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      border: 1px solid rgba(20,83,45,0.14);
-      box-shadow: 0 2px 8px rgba(20,83,45,0.1), 0 1px 2px rgba(20,83,45,0.06);
+    /* Logo block — không có khung, logo thở trực tiếp trên nền */
+    .brand {
+      display: flex; align-items: center; gap: 18px;
+      margin-bottom: 40px;
     }
-    .brand-logo-wrap img {
-      width: 76%; height: 76%;
-      object-fit: contain;
-      display: block;
+
+    .brand-logo {
+      width: 44px; height: 44px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 4px 18px rgba(20,83,45,0.10));
+    }
+    .brand-logo img {
+      width: 100%; height: 100%;
+      object-fit: contain; display: block;
+    }
+
+    .brand-divider {
+      width: 1px; height: 32px;
+      background: rgba(20,83,45,0.15);
+      flex-shrink: 0;
     }
 
     .brand-text { display: flex; flex-direction: column; gap: 3px; }
     .brand-name {
       font-family: 'Lora', serif;
-      font-size: 15.5px; font-weight: 600;
-      color: var(--text); letter-spacing: 0.005em; line-height: 1.2;
+      font-size: 15px; font-weight: 600;
+      color: #1F2A24; letter-spacing: 0.008em; line-height: 1.2;
     }
-    .brand-sub { font-size: 11.5px; color: var(--text-light); letter-spacing: 0.025em; }
+    .brand-sub {
+      font-size: 11px; color: var(--text-light);
+      letter-spacing: 0.03em;
+    }
 
     .header-title {
       font-family: 'Lora', serif;
@@ -144,13 +152,9 @@
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; background: rgba(20,83,45,0.07);
     }
-    .card-icon svg {
-      width: 22px; height: 22px; fill: none;
-      stroke: var(--green); stroke-width: 1.5;
-      stroke-linecap: round; stroke-linejoin: round;
-    }
+    .card-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--green); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
     .card-icon.mid  { background: rgba(79,125,58,0.08); }
-    .card-icon.mid svg { stroke: #4F7D3A; }
+    .card-icon.mid svg  { stroke: #4F7D3A; }
     .card-icon.lite { background: rgba(111,143,78,0.08); }
     .card-icon.lite svg { stroke: #6F8F4E; }
     .card-icon.deep { background: rgba(11,61,46,0.08); }
@@ -167,8 +171,7 @@
     .card-name {
       font-family: 'Lora', serif;
       font-size: 19px; font-weight: 600;
-      margin-bottom: 6px; letter-spacing: -0.015em;
-      color: var(--text);
+      margin-bottom: 6px; letter-spacing: -0.015em; color: var(--text);
     }
     .card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
 
@@ -209,6 +212,7 @@
       .card-icon { width: 44px; height: 44px; }
       .card-name { font-size: 17px; }
       .header-desc { font-size: 14px; }
+      .brand-logo { width: 38px; height: 38px; }
     }
   </style>
 </head>
@@ -223,9 +227,10 @@
     </div>
 
     <div class="brand">
-      <div class="brand-logo-wrap">
+      <div class="brand-logo">
         <img src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20965%20932%22%3E%3Cpath%20fill=%22%2314532d%22%20d=%22M485.5,5.14C230.7,5.14,24.14,211.7,24.14,466.5s206.56,461.37,461.36,461.37,461.36-206.56,461.36-461.37S740.3,5.14,485.5,5.14ZM485.5,883.81c-230.47,0-417.3-186.84-417.3-417.31S255.03,49.2,485.5,49.2s417.3,186.83,417.3,417.3-186.83,417.31-417.3,417.31Z%22/%3E%3Cpath%20fill=%22%2314532d%22%20d=%22M871.98,503h-284.98s-.01-62.01-.01-62.01h234.96s.05-26.12.05-26.12l.94-6.87h-235.94s0-126.99,0-126.99h-31.01l.02,127h-70.02l.02-159h-32.02l.02,159-158-.02v33.02l158-.02v62.02l-158-.02v33.02l158-.02-.02,164h32.02l-.02-164h70.02v194.99s30.98,0,30.98,0l.04-194.98h284.96v-33ZM556,503h-70v-62h70v62Z%22/%3E%3Cpath%20fill=%22%2314532d%22%20d=%22M437.1,352.53c-32.96-49.63-86.33-79.48-145.64-75.14-45,3.29-85.41,26.85-113.24,61.9-22.85,28.79-36.56,63.15-40.93,99.78l-1.09,13.87c-2.13,26.81,2.05,52.76,10.82,78.07,25.52,73.59,90.73,125.65,170.74,118.53,33.32-2.96,63.64-17.38,88.57-39.1l15.13-14.97,16.56-21.02v81.88c-32.45,23.82-70.48,39.73-110.86,43.64l-8.18.79-32.78-.18c-49.9-3.88-96.27-23.99-133.71-57.03l-19.99-20.07c-94.04-106-76.94-272.39,38.35-355.71,80.22-57.97,186.6-57.06,267.12,1.73l.06,81.08c1.61,1.44.72,3.12-.93,1.95Z%22/%3E%3C/svg%3E" alt="Thầy Văn Anh Guitar">
       </div>
+      <div class="brand-divider"></div>
       <div class="brand-text">
         <div class="brand-name">Thầy Văn Anh Guitar</div>
         <div class="brand-sub">class.vananhaudio.com</div>
