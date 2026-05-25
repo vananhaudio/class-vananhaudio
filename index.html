@@ -15,6 +15,10 @@
       --green-light: #EAF2EC;
       --gold: #B8860B;
       --gold-light: #FBF5E6;
+      --blue: #2E5FA3;
+      --blue-light: #EAF0FA;
+      --purple: #6B4FA0;
+      --purple-light: #F2EEF9;
       --border: rgba(44,42,37,0.1);
       --shadow: 0 2px 12px rgba(44,42,37,0.08);
       --shadow-hover: 0 8px 28px rgba(44,42,37,0.13);
@@ -45,16 +49,19 @@
     .app-card:nth-child(1) { animation-delay: 0.08s; }
     .app-card:nth-child(2) { animation-delay: 0.15s; }
     .app-card:nth-child(3) { animation-delay: 0.22s; }
+    .app-card:nth-child(4) { animation-delay: 0.29s; }
     .app-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); border-color: rgba(44,42,37,0.18); }
     .card-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; }
     .icon-green { background: var(--green-light); }
     .icon-gold { background: var(--gold-light); }
     .icon-warm { background: #F5EDE6; }
+    .icon-blue { background: var(--blue-light); }
     .card-body { flex: 1; min-width: 0; }
     .card-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 5px; }
     .tag-green { color: var(--green); }
     .tag-gold { color: var(--gold); }
     .tag-warm { color: #A0522D; }
+    .tag-blue { color: var(--blue); }
     .card-name { font-family: 'Lora', serif; font-size: 19px; font-weight: 600; margin-bottom: 5px; letter-spacing: -0.01em; }
     .card-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.55; }
     .card-arrow { font-size: 18px; color: var(--text-muted); flex-shrink: 0; transition: transform 0.2s, color 0.2s; }
@@ -89,6 +96,7 @@
     </div>
 
     <div class="apps">
+
       <a class="app-card" href="https://timming.vananhaudio.com/tap" target="_blank">
         <div class="card-icon icon-green">🥁</div>
         <div class="card-body">
@@ -118,6 +126,17 @@
         </div>
         <div class="card-arrow">→</div>
       </a>
+
+      <a class="app-card" href="https://guitar.vananhaudio.com" target="_blank">
+        <div class="card-icon icon-blue">🎛️</div>
+        <div class="card-body">
+          <div class="card-tag tag-blue">Cần đàn</div>
+          <div class="card-name">Guitar Board</div>
+          <div class="card-desc">Bảng đàn guitar tương tác — tạo và lưu scale, học vị trí nốt nhạc. Dùng được khi giảng dạy trực tuyến qua Zoom.</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
     </div>
 
     <div class="footer">
