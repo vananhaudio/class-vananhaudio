@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thầy Văn Anh Guitar — Class</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F5F2EA;
+      --text: #2C2A25;
+      --text-muted: #8C8679;
+      --green: #3D7A5C;
+      --green-light: #EAF2EC;
+      --gold: #B8860B;
+      --gold-light: #FBF5E6;
+      --border: rgba(44,42,37,0.1);
+      --shadow: 0 2px 12px rgba(44,42,37,0.08);
+      --shadow-hover: 0 8px 28px rgba(44,42,37,0.13);
+    }
+    html, body { min-height: 100vh; background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: repeating-linear-gradient(transparent, transparent 27px, rgba(44,42,37,0.04) 27px, rgba(44,42,37,0.04) 28px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .wrap { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 72px 32px 80px; }
+    .header { margin-bottom: 56px; animation: fadeUp 0.5s ease both; }
+    .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+    .brand-logo { width: 44px; height: 44px; border-radius: 12px; background: var(--green); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(61,122,92,0.25); }
+    .brand-name { font-family: 'Lora', serif; font-size: 15px; font-weight: 600; }
+    .brand-sub { font-size: 12px; color: var(--text-muted); }
+    .header-title { font-family: 'Lora', serif; font-size: clamp(28px, 5vw, 42px); font-weight: 600; line-height: 1.2; margin-bottom: 12px; letter-spacing: -0.01em; }
+    .header-title em { font-style: italic; color: var(--green); }
+    .header-desc { font-size: 15px; color: var(--text-muted); line-height: 1.65; max-width: 480px; }
+    .divider { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+    .divider-line { flex: 1; height: 1px; background: var(--border); }
+    .divider-note { font-size: 11px; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+    .apps { display: flex; flex-direction: column; gap: 14px; }
+    .app-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 24px 28px; text-decoration: none; color: inherit; display: flex; align-items: center; gap: 24px; box-shadow: var(--shadow); transition: box-shadow 0.25s, transform 0.2s, border-color 0.2s; animation: fadeUp 0.5s ease both; }
+    .app-card:nth-child(1) { animation-delay: 0.08s; }
+    .app-card:nth-child(2) { animation-delay: 0.15s; }
+    .app-card:nth-child(3) { animation-delay: 0.22s; }
+    .app-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); border-color: rgba(44,42,37,0.18); }
+    .card-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; }
+    .icon-green { background: var(--green-light); }
+    .icon-gold { background: var(--gold-light); }
+    .icon-warm { background: #F5EDE6; }
+    .card-body { flex: 1; min-width: 0; }
+    .card-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 5px; }
+    .tag-green { color: var(--green); }
+    .tag-gold { color: var(--gold); }
+    .tag-warm { color: #A0522D; }
+    .card-name { font-family: 'Lora', serif; font-size: 19px; font-weight: 600; margin-bottom: 5px; letter-spacing: -0.01em; }
+    .card-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.55; }
+    .card-arrow { font-size: 18px; color: var(--text-muted); flex-shrink: 0; transition: transform 0.2s, color 0.2s; }
+    .app-card:hover .card-arrow { transform: translateX(4px); color: var(--green); }
+    .footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .footer-text { font-size: 12px; color: var(--text-muted); }
+    .footer-dot { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--green); }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+    @media(max-width:520px){.wrap{padding:48px 20px 60px}.app-card{padding:20px;gap:16px}.card-icon{width:48px;height:48px;font-size:22px}.card-name{font-size:17px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="brand">
+        <div class="brand-logo">🎵</div>
+        <div>
+          <div class="brand-name">Thầy Văn Anh Guitar</div>
+          <div class="brand-sub">class.vananhaudio.com</div>
+        </div>
+      </div>
+      <h1 class="header-title">Công cụ<br><em>học nhạc</em> của Thầy</h1>
+      <p class="header-desc">Bộ ứng dụng hỗ trợ học sinh luyện tập và ghi nhớ kiến thức âm nhạc — thiết kế cho việc học lâu dài, bền bỉ.</p>
+    </div>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-note">Ứng dụng</div>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="apps">
+      <a class="app-card" href="https://timming.vananhaudio.com/tap" target="_blank">
+        <div class="card-icon icon-green">🥁</div>
+        <div class="card-body">
+          <div class="card-tag tag-green">Nhịp điệu</div>
+          <div class="card-name">Timming</div>
+          <div class="card-desc">Luyện cảm nhận nhịp điệu theo bài hát thật. Hệ thống 4 level, chấm điểm tự động, metronome tích hợp.</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="app-card" href="https://chords.vananhaudio.com" target="_blank">
+        <div class="card-icon icon-gold">🎸</div>
+        <div class="card-body">
+          <div class="card-tag tag-gold">Hợp âm</div>
+          <div class="card-name">Chords</div>
+          <div class="card-desc">Tra cứu và luyện ghi nhớ hợp âm guitar. Hiển thị thế bấm trực quan trên cần đàn.</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="app-card" href="https://lab.vananhaudio.com" target="_blank">
+        <div class="card-icon icon-warm">🎼</div>
+        <div class="card-body">
+          <div class="card-tag tag-warm">Lý thuyết</div>
+          <div class="card-name">Note Lab</div>
+          <div class="card-desc">Luyện ghi nhớ vị trí nốt nhạc trên khuông nhạc và phím đàn. Nhanh, trực quan, có điểm số.</div>
+        </div>
+        <div class="card-arrow">→</div>
+      </a>
+    </div>
+
+    <div class="footer">
+      <div class="footer-text">© 2026 Thầy Văn Anh Guitar</div>
+      <div class="footer-dot"><div class="dot"></div>đang phát triển</div>
+    </div>
+  </div>
+</body>
+</html>
